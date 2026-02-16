@@ -31,8 +31,19 @@ jeg har prøvet at colapse teksterne, så listen ikke er så lang.
 <details>
   <summary><h2>kryptografi</h2></summary>
   <details>
-    <summary><h3>ceasar kryptografi</h3></summary>
+    <summary><h3>Teori om kryptering bla sikkerhed</h3></summary>
+  </details>
+    <details>
+    <summary><h3>Krypteringstyper</h3></summary>
+  </details>
+  <details>
+    <summary><h3>Krypterings produkt</h3></summary>
   </details>
 </details>
+  <details>
+  <summary><h2>3D design og print</h2></summary>
+  <details>
+    <summary><h3>Programmer</h3></summary>
+  </details>
 </details>
 
