@@ -1,16 +1,77 @@
-# sebastian-informatik-logbog
-jeg har prøvet at colapse teksterne, så listen ikke er så lang.
+
+# Sebastian-informatik-logbog
+
 <details>
   <summary><h1>Grundforløb</h1></summary>
+
   <details>
     <summary><h2>App og interaktionsdesign</h2></summary>
-     <h3>Applab</h3>
-     <h3>Gestalt love</h3>
-     <h3>Prototyper</h3>
-    <h3>Brugertest</h3>
+
+- ### Applab 06-11-25  
+  neden stående er linket til previewet af vores bilapp  
+  https://studio.code.org/projects/applab/WskV32RwFC9BhJyZ__gj84eFpxl7lQAAoUFOrX0zxGc
+
+    ```js
+    onEvent("Profilbillede", "click", function() {
+      setScreen("Profil");
+    });
+    onEvent("Logpå", "click", function() {
+      setScreen("Profil.Loggetind");
+    });
+    onEvent("Menu", "click", function() {
+      setScreen("Menubar");
+    });
+    onEvent("Menu.Bilmodller.Knap", "click", function() {
+      setScreen("Menu-Bilmodeller");
+    });
+    onEvent("Elbil.Knap", "click", function() {
+      setScreen("Bilmodeller-Elbil");
+    });
+    onEvent("Menu.Kundeservice.knap", "click", function() {
+      setScreen("Menu-Kundeservice");
+    });
+    onEvent("Elbil.Q4", "click", function() {
+      setScreen("Q4Etron");
+    });
+    onEvent("Søg", "click", function() {
+      setScreen("Søgefunktion");
+    });
+    onEvent("Audilogo", "click", function() {
+      setScreen("Forside");
+    });
+    onEvent("image7", "click", function() {
+      setScreen("Forside");
+    });
+    onEvent("image13", "click", function() {
+      setScreen("Forside");
+    });
+    onEvent("image21", "click", function() {
+      setScreen("Forside");
+    });
+    onEvent("image2", "click", function() {
+      setScreen("Forside");
+    });
+    onEvent("image11", "click", function() {
+      setScreen("Forside");
+    });
+    onEvent("image16", "click", function() {
+      setScreen("Forside");
+    });
+    onEvent("image32", "click", function() {
+      setScreen("Forside");
+    });
+    onEvent("image1", "click", function() {
+      setScreen("Forside");
+    });
+    ```
+
+
+- ### Gestalt love
+- ### Prototyper
+- ### Brugertest (think-aloud)
+
   </details>
 </details>
-
 <details>
   <summary><h1>Informatik 1.g </h1></summary>
 <details>
