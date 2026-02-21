@@ -6,13 +6,19 @@
 
   <details>
     <summary><h2>App og interaktionsdesign</h2></summary>
-
-- ### Applab 06-11-25  
-  neden stående er linket til previewet af vores bilapp  
-  https://studio.code.org/projects/applab/WskV32RwFC9BhJyZ__gj84eFpxl7lQAAoUFOrX0zxGc
-
-    ```js
-    onEvent("Profilbillede", "click", function() {
+<h3>Gestalt love</h3>
+<h3>Prototyper</h3>
+<h3>Brugertest (think-aloud)</h3>
+<p><h3>Applab 06-11-25  </h3>
+  skal skrive noget her
+  <img width="321" height="591" alt="billede" src="https://github.com/user-attachments/assets/982a1342-d09f-457f-8655-bab3c8c1536b" /><br>
+  neden stående er linket til previewet af vores bilapp <br>
+  https://studio.code.org/projects/applab/WskV32RwFC9BhJyZ__gj84eFpxl7lQAAoUFOrX0zxGc<br></p>
+  
+  <details>
+  <summary><h3>Koden</h3></summary>
+    
+      onEvent("Profilbillede", "click", function() {
       setScreen("Profil");
     });
     onEvent("Logpå", "click", function() {
@@ -63,13 +69,8 @@
     onEvent("image1", "click", function() {
       setScreen("Forside");
     });
-    ```
-
-
-- ### Gestalt love
-- ### Prototyper
-- ### Brugertest (think-aloud)
-
+    
+  </details>
   </details>
 </details>
 <details>
@@ -107,4 +108,7 @@
     <summary><h3>Programmer</h3></summary>
   </details>
 </details>
+    <details>
+  <summary><h2>Logbog i Github 16/2</h2></summary>
+      </details>
 
