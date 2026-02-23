@@ -39,8 +39,8 @@ strukturdiagram ↓ <br>
 <img width="564" height="411" alt="billede" src="https://github.com/user-attachments/assets/dd140abc-06dd-4f40-96ca-f7ef8a763a40" /> 
 
 flowchart ↓ <br>
-<img width="564" height="411" alt="billede" src="https://github.com/user-attachments/assets/3293a79d-1e7e-47e8-ab78-98053c6c638c" />
-
+<img width="564" height="411" alt="billede" src="https://github.com/user-attachments/assets/3293a79d-1e7e-47e8-ab78-98053c6c638c" /> <br>
+til sidst lavede vi en papir versionen af appen, for man kan rykke på papiret for at vise hvordan appen skulle interegere, jeg har mistede billede men burde kunne ses på videoen i brugertest.
 <h3>Brugertest (think-aloud)</h3>
 Tænke højt test gik fint, mangel på tilbageknap, Men nok fint bare at kunne swipe <br>
     link til videon af brugertesten ↓ <br>
@@ -119,11 +119,14 @@ https://tstaarhustech-my.sharepoint.com/personal/at25fbra_edu_aarhustech_dk/_lay
      <h4>Løkker</h4>
      <h4>Kontrolstruktur</h4>
     <h4>Lister</h4>
+    <h4>Flowcharts</h4>
    </details>
   <details>
     <summary><h3>Mini Projekter</h3></summary>
   <h4>Sierpinski trekantskode</h4>
+    https://editor.p5js.org/sebastian29/sketches/ceDRPV87D 
     <details>
+      ```
       <summary>Koden</summary>
       var punkter = [];
 const nedkølingstid = 1000;
@@ -182,8 +185,213 @@ function draw() {
     punkter.splice(0, 3);
   }
 }
+      ```
     </details>
      <h4>Fysik simuleringskode</h4>
+      https://editor.p5js.org/sebastian29/sketches/4fjYWHHm6 
+      <details>
+      <summary>Koden til første fysik simulering</summary>
+let NyePunkter = [];
+
+function setup() {
+  createCanvas(600, 600);
+}
+function draw() {
+  background(220);
+  strokeWeight(10);
+
+  for (let p of NyePunkter) {
+    point(p.x, p.y);
+    p.yv += p.ya;
+    //p.xv += p.xa; 
+    // ser fucker mærk lig ud med accelration
+    p.y += p.yv;
+    p.x += p.xv;
+    if (p.y <= 10 || p.y >= height-10) {
+      p.yv *= -0.98;
+      //p.ya *= -0.98;
+    }
+    if (p.x <= 10 || p.x >= width-10) {
+      p.xv *= -0.98;
+      //p.xa *= -0.98;
+    }
+  }
+  
+for (let i = 0; i < NyePunkter.length; i++) {
+    for (let j = i + 1; j < NyePunkter.length; j++) {
+      let p = NyePunkter[i];
+      let q = NyePunkter[j];
+      let d = dist(p.x, p.y, q.x, q.y);
+      if (d < 10) { 
+        let tempXv = p.xv;
+        let tempYv = p.yv;
+        p.xv = q.xv;
+        p.yv = q.yv;
+        q.xv = tempXv;
+        q.yv = tempYv;
+      }
+    }
+} 
+}
+function mousePressed() {
+  let NytPunkt = {
+    x: mouseX,
+    y: mouseY,
+    yv: random(-2,2),
+    xv: random(-2,2),
+    xa: 0.1,
+    ya: 0.1
+  };
+  NyePunkter.push(NytPunkt);
+}
+</details>
+https://editor.p5js.org/sebastian29/sketches/ceDRPV87D 
+      <details>
+      <summary>Koden til anden fysik simulering med pool</summary>
+        let NyePunkter = [];
+const R = 7.5;   
+const e = 0.9;    
+
+
+let kugler = [
+  { x: 111*3/2, y: 100, vx: 0, vy: 0, color: [255, 0, 0] },
+  { x: 111*3/2+16, y: 100, vx: 0, vy: 0, color: [255, 255, 0] },
+  { x: 111*3/2+32, y: 100, vx: 0, vy: 0, color: [255, 0, 0] },
+  { x: 111*3/2-16, y: 100, vx: 0, vy: 0, color: [255, 255, 0] },
+  { x: 111*3/2-32, y: 100, vx: 0, vy: 0, color: [255, 0, 0] },
+
+  { x: 111*3/2-8, y: 113, vx: 0, vy: 0, color: [255, 255, 0] },
+  { x: 111*3/2-16-8, y: 113, vx: 0, vy: 0, color: [255, 0, 0] },
+  { x: 111*3/2+8, y: 113, vx: 0, vy: 0, color: [255, 255, 0] },
+  { x: 111*3/2+16+8, y: 113, vx: 0, vy: 0, color: [255, 0, 0] },
+
+  { x: 111*3/2, y: 126, vx: 0, vy: 0, color: [255, 255, 0] },
+  { x: 111*3/2+16, y: 126, vx: 0, vy: 0, color: [255, 0, 0] },
+  { x: 111*3/2-16, y: 126, vx: 0, vy: 0, color: [255, 255, 0] },
+
+  { x: 111*3/2-8, y: 139, vx: 0, vy: 0, color: [255, 0, 0] },
+  { x: 111*3/2+8, y: 139, vx: 0, vy: 0, color: [255, 255, 0] },
+
+  { x: 111*3/2, y: 152, vx: 0, vy: 0, color: [255, 0, 0] },
+
+  { x: 111*3/2, y: 400, vx: 0.1, vy: -33, color: [255, 255, 255] } // white ball 
+];
+
+let huller = [
+  { x: 25, y: 25, r: 10 }, // top-left
+  { x: 111*3 - 25, y: 25, r: 12.5 }, // top-right
+  { x: 25, y: 183*3 - 25, r: 12.5 }, // bottom-left
+  { x: 111*3 - 25, y: 183*3 - 25, r: 12.5 }, // bottom-right
+  { x: 25, y: 183*3 / 2, r: 12.5 }, // left-center
+  { x: 111*3 - 25, y: 183*3 / 2, r: 12.5 } // right-center
+];
+
+function setup() {
+  createCanvas(111*3, 183*3);
+  startBalls();
+}
+function draw() {
+  background(24, 69, 25);
+  drawEdges();
+  strokeWeight(15);
+  startBalls();
+  updateBalls();
+}
+
+function startBalls() {
+  for (let i = 0; i < kugler.length; i++) {
+    stroke(kugler[i].color[0], kugler[i].color[1], kugler[i].color[2]);
+    point(kugler[i].x, kugler[i].y);
+  }
+}
+
+function updateBalls() {
+  const edge = 25;
+
+  for (let i = 0; i < kugler.length; i++) {
+    kugler[i].x += kugler[i].vx;
+    kugler[i].y += kugler[i].vy;
+    if (kugler[i].x < edge + R) { kugler[i].x = edge + R; kugler[i].vx *= -e; }
+    if (kugler[i].x > width - edge - R) { kugler[i].x = width - edge - R; kugler[i].vx *= -e; }
+    if (kugler[i].y < edge + R) { kugler[i].y = edge + R; kugler[i].vy *= -e; }
+    if (kugler[i].y > height - edge - R) { kugler[i].y = height - edge - R; kugler[i].vy *= -e; }
+    kugler[i].vx *= 0.9935;
+    kugler[i].vy *= 0.9935;
+    if (abs(kugler[i].vx) < 0.09) kugler[i].vx = 0;
+    if (abs(kugler[i].vy) < 0.09) kugler[i].vy = 0;
+    for (let j = i + 1; j < kugler.length; j++) {
+      const dx = kugler[j].x - kugler[i].x;
+      const dy = kugler[j].y - kugler[i].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist > 0 && dist < 2 * R) {
+        const nx = dx / dist;
+        const ny = dy / dist;
+        const overlap = 2 * R - dist;
+        kugler[i].x -= overlap / 2 * nx;
+        kugler[i].y -= overlap / 2 * ny;
+        kugler[j].x += overlap / 2 * nx;
+        kugler[j].y += overlap / 2 * ny;
+        const vi = kugler[i].vx * nx + kugler[i].vy * ny;
+        const vj = kugler[j].vx * nx + kugler[j].vy * ny;
+        const diff = vi - vj;
+        kugler[i].vx -= diff * nx;
+        kugler[i].vy -= diff * ny;
+        kugler[j].vx += diff * nx;
+        kugler[j].vy += diff * ny;
+      }
+    }
+  }
+
+  for (let i = kugler.length - 1; i >= 0; i--) {
+    for (let h = 0; h < huller.length; h++) {
+      const dx = kugler[i].x - huller[h].x;
+      const dy = kugler[i].y - huller[h].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < huller[h].r) {
+        if (i ===  15)
+            {
+              console.log("hvid kugle ramt i");
+              kugler.splice(i, 1);
+            }
+        else 
+        kugler.splice(i, 1);
+        console.log("kugle "+i+" ramt i");
+        break;
+      }
+    }
+  }
+}
+
+
+function xyd (x1,y1,x2,y2)
+{
+  let xd = x1-x2;
+  let yd = y1-y2;
+  
+  let d = sqrt(xd**2+yd**2) //yd**2 = yd^2
+  return d;
+}
+
+function drawEdges()
+{
+  let edgeColour = {r:40, g:40, b:26}
+  strokeWeight(15);
+  stroke(edgeColour.r,edgeColour.g,edgeColour.b);
+  fill(edgeColour.r,edgeColour.g,edgeColour.b);
+  rect(0,0,111*3,20);
+  rect(0,0,20,183*3);
+  rect(0,183*3-20,111*3,183*3);
+  rect(111*3-20,0,20,183*3);
+  for (let i = 0; i < huller.length; i++) 
+    {
+      strokeWeight(25);
+      stroke(edgeColour.r*2,edgeColour.g*2,edgeColour.b*2);
+      point(huller[i].x,huller[i].y);
+    }
+}
+function mousePressed() {
+  console.log(mouseX+","+mouseY)
+}
    </details>
 </details>
 <details>
