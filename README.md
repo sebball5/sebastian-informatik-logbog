@@ -406,6 +406,7 @@ function mousePressed() {
     <summary><h3>Krypterings produkt</h3></summary>
   </details>
 </details>
+</details>
   <details>
   <summary><h2>3D design og print</h2></summary>
   <details>
@@ -415,4 +416,71 @@ function mousePressed() {
     <details>
   <summary><h2>Logbog i Github 16/2</h2></summary>
       </details>
+<details> 
+  <summary><h2>arduino 02-03-2026 -> </h2></summary>
+  02-03-2026 <br>
+  Arduino IDE 
+  x = digital read, så er x = 0 eller 1, altså low eller high
+  pinmode (5, input_pullup) 
+  x =digital read(5), hvis x 
+Arduino
+Er open source: alle må bygge en, kode en, etc.
+Man kan sætte ledninger i og kode og få processoren til at gøre ting.
+i arduino IDE tjekker verify for fejl mens upload uploader
+Noget med analog...
+ADC
+0V --> 0
+2,5V --> 511
+5V --> 1023
+Pins har TO funktioner: inputs/outputs    kaldes GPIO: General Purpose, input/output
+Flowcharts er en god idé
+Blokdiagrammer kan gøre ting mere overskuelige. Man deler de forskellige dele op og gør det mere overskueligt.
+ArduinoIDE: appen man koder i
+For kode-viden, se "programmering". Der er også noter fra introduktionen til Arduino fra grundforløbet.
+Setup kører én gang.
+Loop kører forever (kaldes draw i p5js).
+BUILTIN bruges til at snakke om en indbygget pin/led/andet
+funktion: PinMode (#, x)   x = input eller output. # = hvilken pin
+Måder den kan tale med omverdenen på...:
+x = DigitalRead(#)     x = 0/1 el. low/high    så aflæser den en specifik pin
+AnalogRead ()     konverterer tal rundt
+Protokol: når man skal sende data, og ikke bare tænd/sluk ex.
+  i library i arduino IDE, kan man intallere eksempler fra et bibliotek, eksemplet mark gav var at søge på accelaratometer og så finder den en til en.
+  det er en dum ide at give en AI chatbot, hele projektet på en gang, men at bryde den op i bider. for at hjælpe med at forstå ens kode kan man bruge flowcharts og blokdiagrammer.
+  
+  få at teste ovenstående teori vil et lave et program i arduino IDE, hvor man trykker på knappen tændes en led.
+  til at starte indeholde arduinoen allerede kode fra det sidste projekt den er bleven brugt, dette vil vi gerne have væk, derfor resetter den.
+  så går vi ind i eksempler i arduino IDE hvor vi finde BLINK og sætter os ind i koden.
+  vi vil ændre så at LEDen lyser når man trykker på en knap, vi finder et eksemple i Arduino IDE og så ændre vi inputne og outputne, så virker med vores huller
+  // constants won't change. They're used here to set pin numbers:
+const int buttonPin = A4;  // the number of the pushbutton pin
+const int ledPin = 13;    // the number of the LED pin
 
+// variables will change:
+int buttonState = 0;  // variable for reading the pushbutton status
+
+void setup() {
+  // initialize the LED pin as an output:
+  pinMode(ledPin, OUTPUT);
+  // initialize the pushbutton pin as an input:
+  pinMode(buttonPin, INPUT);
+}
+
+void loop() {
+  // read the state of the pushbutton value:
+  buttonState = digitalRead(buttonPin);
+
+  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+  if (buttonState == HIGH) {
+    // turn LED on:
+    digitalWrite(ledPin, LOW);
+  } else {
+    // turn LED off:
+    digitalWrite(ledPin, HIGH);
+  }
+  <details> 
+  <summary><h3>arduino projekt 06-03-2026 -> </h3></summary>
+    brainstorm: <br>
+    arduino som måler lyden i klassen, hvis lyden bliver for høj laver den en hylende lyd. 
+  </details>
+</details>
