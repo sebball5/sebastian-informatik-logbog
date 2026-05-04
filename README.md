@@ -118,9 +118,14 @@ https://tstaarhustech-my.sharepoint.com/personal/at25fbra_edu_aarhustech_dk/_lay
   <details>
     <summary><h3>Teori</h3></summary>
   <h4>Variabler</h4>
+    Variabler bruges til at gemme data i et program, f.eks. tal, tekst eller sand/falsk-værdier, som kan ændres og bruges senere.
      <h4>Løkker</h4>
+    Løkker bruges til at gentage den samme kode flere gange, f.eks. så længe en betingelse er sand, eller et bestemt antal gange
      <h4>Kontrolstruktur</h4>
+    Kontrolstrukturer styrer programmets forløb, f.eks. ved hjælp af if/else, som afgør hvilken kode der skal køres afhængigt af betingelser.
     <h4>Lister</h4>
+    Flowcharts er diagrammer, der viser et programs logik og rækkefølge trin for trin ved hjælp af symboler og pile.
+    Lister er datastrukturer, der kan indeholde flere værdier i én samling, som man kan gennemløbe og ændre.
     <h4>Flowcharts</h4>
    </details>
   <details>
@@ -447,6 +452,15 @@ HTTPS er en sikker version af HTTP og bruges til sikker kommunikation på intern
   <summary><h2>3D design og print</h2></summary>
   <details>
     <summary><h3>Programmer</h3></summary>
+    #### Fusion 
+    <img width="1742" height="798" alt="image" src="https://github.com/user-attachments/assets/d329f272-1907-44f3-9750-bd8f62fa305e" />
+Billedet er fra Arduino projektet da jeg ikke har taget billeder fra dette projekt <br>
+    I Fusion kan man laver 3D figurer 
+    ##### Udregninger til at få en figur et præcist masse fylde 
+    <img width="465" height="587" alt="image" src="https://github.com/user-attachments/assets/3cb47b70-68fa-4e86-9cc5-955da3c0a81d" />
+    #### Bambulab 
+    <img width="1004" height="606" alt="image" src="https://github.com/user-attachments/assets/a4797bb0-5ec3-4020-ba99-0fa56e4436a1" />
+Bambulab hvor man så kan printe 
   </details>
 </details>
 <details> 
