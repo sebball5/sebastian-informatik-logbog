@@ -1,6 +1,8 @@
 
 # Sebastian-informatik-logbog
 
+Der er først Datoer og ordenlig Logbog til emnerne arduino og tello drone. Desuden er der endelig kun ordenlig fyld til Grundforløb, Arduino og Tello. (da det er til de emner hvor jeg har skreven ordenlige noter)
+
 <details>
   <summary><h1>Grundforløb</h1></summary>
 
@@ -126,7 +128,6 @@ https://tstaarhustech-my.sharepoint.com/personal/at25fbra_edu_aarhustech_dk/_lay
   <h4>Sierpinski trekantskode</h4>
     https://editor.p5js.org/sebastian29/sketches/ceDRPV87D 
     <details>
-      ```
       <summary>Koden</summary>
       var punkter = [];
 const nedkølingstid = 1000;
@@ -393,14 +394,25 @@ function mousePressed() {
   console.log(mouseX+","+mouseY)
 }
    </details>
-</details>
+   </details>
+
 <details>
   <summary><h2>kryptografi</h2></summary>
+  Kryptering er en proces, der konverterer information til en kode for at forhindre uautoriseret adgang
   <details>
     <summary><h3>Teori om kryptering bla sikkerhed</h3></summary>
+    
   </details>
     <details>
     <summary><h3>Krypteringstyper</h3></summary>
+      
+#### Symmetrisk Kryptering
+Forklaring: Symmetrisk kryptering er kryptering, hvor afsender og modtager skal bruge den samme nøgle: Afsender krypterer med nøglen, modtager dekrypterer med nøglen.
+##### Cæsar kryptering:
+
+#### Asymmetrisk kryptering 
+Forklaring: Kryptering, hvor afsender og modtager hver har sit eget sæt nøgler, en privat nøgle og en offentlig nøgle. Den private nøgle er hemmelig og kun kendt af ejermanden, mens alle har adgang til at se den offentlige nøgle. Data krypteret med den offentlige nøgle kan kun dekrypteres med den private nøgle. 
+      
   </details>
   <details>
     <summary><h3>Krypterings produkt</h3></summary>
@@ -415,7 +427,7 @@ function mousePressed() {
 </details>
 <details> 
   <summary><h2>arduino 02-03-2026 -> 10-04-2026 </h2></summary>
-  Resume: Resume: Arduino som måler Luftkval og automatisk laver grafer
+  Resume: Arduino som måler Luftkval og automatisk laver grafer
   # Arduino-projekt-1
 Første arduino projekt 
 af August, Emilie og Sebastian
@@ -432,8 +444,8 @@ skreven kort om vores præsentation mangler vi
 Link til flowchart lavet i Miro ↓
 
 https://miro.com/welcomeonboard/MHlqSzBMOTVPWXNoTlNaUFZjUjZzQ0VDeG5VWFA1b2R2UDF1SW1yS3JMaGE4M25BcWZmSGE5Q0xIcFp1WitxdGIvb1VlblY4WlVMWlZtclFnN1l4NTZSTVhMdVhWaGxTMnhZSjNDWkFFa09QRmE1ZmdBVElQZWhsT3hwMlgzbnNNakdSWkpBejJWRjJhRnhhb1UwcS9BPT0hdjE=?share_link_id=627217930046 
+<details> <summary><h2>Koden</h2></summary>
 
-# Kode
 ## Arduino 
 ```cpp
 //luft kval måler
@@ -606,7 +618,72 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-# Logbog for emnet
+</details>
+<details>
+<summary><h2>Logbog for Arduino Emnet </h2></summary>
+
+
+  ## 02-03-2026 <br>
+  Arduino IDE 
+  x = digital read, så er x = 0 eller 1, altså low eller high
+  pinmode (5, input_pullup) 
+  x =digital read(5), hvis x 
+Arduino
+Er open source: alle må bygge en, kode en, etc.
+Man kan sætte ledninger i og kode og få processoren til at gøre ting.
+i arduino IDE tjekker verify for fejl mens upload uploader
+Noget med analog...
+ADC
+0V --> 0
+2,5V --> 511
+5V --> 1023
+Pins har TO funktioner: inputs/outputs    kaldes GPIO: General Purpose, input/output
+Flowcharts er en god idé
+Blokdiagrammer kan gøre ting mere overskuelige. Man deler de forskellige dele op og gør det mere overskueligt.
+ArduinoIDE: appen man koder i
+For kode-viden, se "programmering". Der er også noter fra introduktionen til Arduino fra grundforløbet.
+Setup kører én gang.
+Loop kører forever (kaldes draw i p5js).
+BUILTIN bruges til at snakke om en indbygget pin/led/andet
+funktion: PinMode (#, x)   x = input eller output. # = hvilken pin
+Måder den kan tale med omverdenen på...:
+x = DigitalRead(#)     x = 0/1 el. low/high    så aflæser den en specifik pin
+AnalogRead ()     konverterer tal rundt
+Protokol: når man skal sende data, og ikke bare tænd/sluk ex.
+  i library i arduino IDE, kan man intallere eksempler fra et bibliotek, eksemplet mark gav var at søge på accelaratometer og så finder den en til en.
+  det er en dum ide at give en AI chatbot, hele projektet på en gang, men at bryde den op i bider. for at hjælpe med at forstå ens kode kan man bruge flowcharts og blokdiagrammer.
+  
+  få at teste ovenstående teori vil et lave et program i arduino IDE, hvor man trykker på knappen tændes en led.
+  til at starte indeholde arduinoen allerede kode fra det sidste projekt den er bleven brugt, dette vil vi gerne have væk, derfor resetter den.
+  så går vi ind i eksempler i arduino IDE hvor vi finde BLINK og sætter os ind i koden.
+  vi vil ændre så at LEDen lyser når man trykker på en knap, vi finder et eksemple i Arduino IDE og så ændre vi inputne og outputne, så virker med vores huller
+  // constants won't change. They're used here to set pin numbers:
+const int buttonPin = A4;  // the number of the pushbutton pin
+const int ledPin = 13;    // the number of the LED pin
+```
+// variables will change:
+int buttonState = 0;  // variable for reading the pushbutton status
+
+void setup() {
+  // initialize the LED pin as an output:
+  pinMode(ledPin, OUTPUT);
+  // initialize the pushbutton pin as an input:
+  pinMode(buttonPin, INPUT);
+}
+
+void loop() {
+  // read the state of the pushbutton value:
+  buttonState = digitalRead(buttonPin);
+
+  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+  if (buttonState == HIGH) {
+    // turn LED on:
+    digitalWrite(ledPin, LOW);
+  } else {
+    // turn LED off:
+    digitalWrite(ledPin, HIGH);
+  }
+  ```
 ## Brainstorm 06-03-2026
 
 Typer af sensorere vi kan bruge: afstand, infrarød, motion sensor, fugt, temperatur, luft kvalitet, gas, menneske radar, touch, vibration/kollision/bevægelse, støv, afstand, ultralyd, vægt, magnet, fugt, encoders, lyd, kraft, puls  
@@ -845,74 +922,23 @@ i dag skal vi have præsenteret vores projekt med vores powerpoint, derudover sk
 #### Resume af dagen
 
 
-  02-03-2026 <br>
-  Arduino IDE 
-  x = digital read, så er x = 0 eller 1, altså low eller high
-  pinmode (5, input_pullup) 
-  x =digital read(5), hvis x 
-Arduino
-Er open source: alle må bygge en, kode en, etc.
-Man kan sætte ledninger i og kode og få processoren til at gøre ting.
-i arduino IDE tjekker verify for fejl mens upload uploader
-Noget med analog...
-ADC
-0V --> 0
-2,5V --> 511
-5V --> 1023
-Pins har TO funktioner: inputs/outputs    kaldes GPIO: General Purpose, input/output
-Flowcharts er en god idé
-Blokdiagrammer kan gøre ting mere overskuelige. Man deler de forskellige dele op og gør det mere overskueligt.
-ArduinoIDE: appen man koder i
-For kode-viden, se "programmering". Der er også noter fra introduktionen til Arduino fra grundforløbet.
-Setup kører én gang.
-Loop kører forever (kaldes draw i p5js).
-BUILTIN bruges til at snakke om en indbygget pin/led/andet
-funktion: PinMode (#, x)   x = input eller output. # = hvilken pin
-Måder den kan tale med omverdenen på...:
-x = DigitalRead(#)     x = 0/1 el. low/high    så aflæser den en specifik pin
-AnalogRead ()     konverterer tal rundt
-Protokol: når man skal sende data, og ikke bare tænd/sluk ex.
-  i library i arduino IDE, kan man intallere eksempler fra et bibliotek, eksemplet mark gav var at søge på accelaratometer og så finder den en til en.
-  det er en dum ide at give en AI chatbot, hele projektet på en gang, men at bryde den op i bider. for at hjælpe med at forstå ens kode kan man bruge flowcharts og blokdiagrammer.
-  
-  få at teste ovenstående teori vil et lave et program i arduino IDE, hvor man trykker på knappen tændes en led.
-  til at starte indeholde arduinoen allerede kode fra det sidste projekt den er bleven brugt, dette vil vi gerne have væk, derfor resetter den.
-  så går vi ind i eksempler i arduino IDE hvor vi finde BLINK og sætter os ind i koden.
-  vi vil ændre så at LEDen lyser når man trykker på en knap, vi finder et eksemple i Arduino IDE og så ændre vi inputne og outputne, så virker med vores huller
-  // constants won't change. They're used here to set pin numbers:
-const int buttonPin = A4;  // the number of the pushbutton pin
-const int ledPin = 13;    // the number of the LED pin
-
-// variables will change:
-int buttonState = 0;  // variable for reading the pushbutton status
-
-void setup() {
-  // initialize the LED pin as an output:
-  pinMode(ledPin, OUTPUT);
-  // initialize the pushbutton pin as an input:
-  pinMode(buttonPin, INPUT);
-}
-
-void loop() {
-  // read the state of the pushbutton value:
-  buttonState = digitalRead(buttonPin);
-
-  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
-  if (buttonState == HIGH) {
-    // turn LED on:
-    digitalWrite(ledPin, LOW);
-  } else {
-    // turn LED off:
-    digitalWrite(ledPin, HIGH);
-  }
+</details>
    </details>
   <details> 
   <summary><h2>Tello projekt 28-04-2026 -> </h2></summary>
+    Tello projekt, med Sander, Sebastian og Sylvester. <Br>
     Resume: Dronen som flyver efter tyske kommandoer
+    
+LINK til miro 
+
+https://miro.com/app/board/uXjVHb_tvd0=/ 
+
+ ### Problemformulering
+
+Vi vil meget gerne lave en nemmere måde at styre dronen på, da den lige nu skal programeres, det vil vi gerne ændre til en mere brugervenlig overflade.
      <details> 
     <summary><h2>Kode </h2></summary>
-
-       
+      
        import speech_recognition as sr
 r = sr.Recognizer()
 
@@ -977,9 +1003,9 @@ while True:
     except KeyboardInterrupt:
         print("program slukket")
         break 
-        ```
+        
 
-     
+   
 </details>
   <details> <h3>Logbog</h3>
 
