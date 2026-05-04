@@ -1,7 +1,7 @@
 
 # Sebastian-informatik-logbog
 
-Der er først Datoer og ordenlig Logbog til emnerne arduino og tello drone. Desuden er der endelig kun ordenlig fyld til Grundforløb, Arduino og Tello. (da det er til de emner hvor jeg har skreven ordenlige noter)
+Der er først Datoer og ordenlig Logbog til emnerne arduino og tello drone. Desuden er der endelig kun ordenlig fyld til Grundforløb, Arduino og Tello. (da det er til de emner hvor jeg har skreven ordenlige noter), desuden har jeg også mistet nogen projekter (Jeg var ikke klar jeg skulle genbruge det) så der kan forkomme huller.
 
 <details>
   <summary><h1>Grundforløb</h1></summary>
@@ -401,7 +401,16 @@ function mousePressed() {
   Kryptering er en proces, der konverterer information til en kode for at forhindre uautoriseret adgang
   <details>
     <summary><h3>Teori om kryptering bla sikkerhed</h3></summary>
-    
+    `
+    Kryptografi bygger på matematiske principper og anvendes for at sikre tre centrale elementer:
+    <ul>
+      <li><strong>Fortrolighed</strong> – kun autoriserede personer kan læse informationen</li>
+      <li><strong>Integritet</strong> – data må ikke kunne ændres uden at det opdages</li>
+      <li><strong>Autenticitet</strong> – man kan verificere, hvem der har sendt data</li>
+    </ul>
+    Et sikkert kryptosystem antager, at algoritmen er kendt, men at nøglen er hemmelig
+    (Kerckhoffs’ princip).
+
   </details>
     <details>
     <summary><h3>Krypteringstyper</h3></summary>
@@ -409,13 +418,28 @@ function mousePressed() {
 #### Symmetrisk Kryptering
 Forklaring: Symmetrisk kryptering er kryptering, hvor afsender og modtager skal bruge den samme nøgle: Afsender krypterer med nøglen, modtager dekrypterer med nøglen.
 ##### Cæsar kryptering:
-
+`
+     Cæsar-kryptering er en af de ældste krypteringsmetoder. Den fungerer ved at forskyde hvert bogstav 
+      i alfabetet et fast antal pladser. Metoden er dog meget usikker og bruges kun til undervisning.
+##### DES og AES
+`
+      DES (Data Encryption Standard) var tidligere en standard, men regnes i dag for usikker.
+      AES (Advanced Encryption Standard) er en moderne og meget sikker symmetrisk algoritme,
+      som bruges i bl.a. WiFi, harddiskkryptering og VPN-forbindelser.
 #### Asymmetrisk kryptering 
 Forklaring: Kryptering, hvor afsender og modtager hver har sit eget sæt nøgler, en privat nøgle og en offentlig nøgle. Den private nøgle er hemmelig og kun kendt af ejermanden, mens alle har adgang til at se den offentlige nøgle. Data krypteret med den offentlige nøgle kan kun dekrypteres med den private nøgle. 
-      
+##### RSA 
+RSA fungerer ved at generere et nøglepar, der bruges til at beskytte information. Først vælges to store primtal, som ganges sammen for at danne en modulus, der er en del af både den offentlige og private nøgle. Når en afsender vil sende en sikker besked, bruger vedkommende modtagerens offentlige nøgle til at kryptere den. Kun modtagerens private nøgle kan derefter dekryptere beskeden og gøre den læsbar.
+
+Ud over at beskytte kommunikation bruges RSA også til digitale signaturer, hvor afsenderen signerer en besked med sin private nøgle. Modtageren kan derefter verificere signaturen med afsenderens offentlige nøgle, hvilket sikrer, at beskeden er autentisk og ikke er blevet ændret undervejs. Denne metode bruges ofte i officielle dokumenter, softwareopdateringer og finansielle transaktioner.
+##### HTTPS (Hypertext Transfer Protocol Secure)
+HTTPS er en sikker version af HTTP og bruges til sikker kommunikation på internettet.
+      HTTPS anvender kryptering (TLS/SSL) til at beskytte data, der sendes mellem browser og webserver,
+      f.eks. adgangskoder og betalingsoplysninger
   </details>
   <details>
     <summary><h3>Krypterings produkt</h3></summary>
+    Jeg kan ikke frembringe det igen, ved ikke hvor det er
   </details>
 </details>
 </details>
