@@ -413,11 +413,10 @@ function mousePressed() {
     <summary><h3>Programmer</h3></summary>
   </details>
 </details>
-    <details>
-  <summary><h2>Logbog i Github 16/2</h2></summary>
-      </details>
 <details> 
   <summary><h2>arduino 02-03-2026 -> </h2></summary>
+  Resume: Resume: Arduino som måler Luftkval og automatisk laver grafer
+  
   02-03-2026 <br>
   Arduino IDE 
   x = digital read, så er x = 0 eller 1, altså low eller high
@@ -478,9 +477,139 @@ void loop() {
     // turn LED off:
     digitalWrite(ledPin, HIGH);
   }
+   </details>
   <details> 
-  <summary><h3>arduino projekt 06-03-2026 -> </h3></summary>
-    brainstorm: <br>
-    arduino som måler lyden i klassen, hvis lyden bliver for høj laver den en hylende lyd. 
+  <summary><h2>Tello projekt 28-04-2026 -> </h2></summary>
+    Resume: Dronen som flyver efter tyske kommandoer
+     <details> 
+    <summary><h2>Kode </h2></summary>
+
+       
+       import speech_recognition as sr
+r = sr.Recognizer()
+
+from djitellopy import Tello
+import time
+
+Tello.connect()
+print("Battery:", Tello.get_battery())
+
+while True:
+    try:
+        with sr.Microphone() as source:
+            print("lytter.......")
+            
+            #gør så den lytter efter, selvom der er støj i rummet
+            r.adjust_for_ambient_noise(source, duration=0.2)
+            #lytter til havd man siger
+            audio = r.listen(source)
+            #sammenligner lyden til google tyske lydbibilotek
+            text = r.recognize_google(audio, language="de-DE")
+            #lovercaser teksten
+            text = text.lower()  
+
+            print("Du sage:", text)
+
+            if(text == "abheben"):
+                Tello.takeoff()
+
+            elif(text == "hoch"):
+                Tello.move_up(50)
+            
+            elif(text == "runter"):
+                Tello.move_down(50)
+
+            elif(text == "vorwarts"):
+                Tello.move_forward(50)
+            
+            elif(text == "ruckwarts"):
+                Tello.move_back(50)
+
+            elif(text == "rechts"):
+                Tello.move_right(50)
+            
+            elif(text == "links"):
+                Tello.move_left(50)
+
+            elif(text == "israel"):
+                Tello.land
+
+
+            
+            if "exit" in text:
+                print("slukker programmet:")
+                break
+
+    except sr.RequestError as e:
+        print("gad kke virke {0}".format(e))
+
+    except sr.UnknownValueError:
+        print("kunne ikke forstå dig")
+
+    except KeyboardInterrupt:
+        print("program slukket")
+        break 
+        ```
+
+     
+</details>
+  <details> <h3>Logbog</h3>
+
+28-04-2026 
+    
+Intro til otello drone projekt. 
+
+Dronen er meget sikker, samt hvordan man koder til den. 
+Så fik vi også vist marks plan for emnet, noget med gestalt love, noget med trelags modellen. 
+Vi skal starte et projekt omkring dronerne, målet er at lave et program som kan styre en drone (rimeligt løst emne) 
+I Grupperne skal der være fælles dokumenter (Ala Miro, trello og GitHub.), vi skal også skrive en problemformulering og forstå droner og mulighederne. 
+ 
+ 30-04-2026
+ 
+Dagens humør:
+Vi er håbefulde
+
+Dagens program:
+
+Vi vil gerne undersøge python commands så vi kan lave lyd om til commands som dronen kan følge. 
+Vi skal også finde simple prombts til at videregive så meget information som muligt, uden at skulle råbe en længere sætning af dronen.
+ 
+Hvad nået vi i dag: 
+
+Vi fik skrevet et python program der opfanger lyd og sammenligner det med googles tyske lyd bibliotek
+Samt lavet elif statement to at converter det til commands for dronen
+
+
+04-05-2026
+
+Vi er fortsat håbefulde 
+
+Dagensprogram:
+
+Vi vil gerne nå at få dronen til at kunne flyve i dag, det kræver en USB internet adapter så vi kan både være connected til dronen og internettet (for APIen), 
+Hvad vi nået idag:
+Vi fik ikke drone i vejret grundet lidt bøvl med internet og dronen, men vi fik lidt diagrammer såsom trelagsmodellen, client-server modellen, flowchart og blokdiagram. 
+
+### Flowchart
+
+<img width="625" height="706" alt="image" src="https://github.com/user-attachments/assets/a3c96fa9-6700-4ac7-a006-f852dd1487ef" />
+
+flowchartet delt i 2, den øverste del til venstre, den nederste til højer
+
+### Blokdiagram
+
+<img width="975" height="494" alt="image" src="https://github.com/user-attachments/assets/a7bf5324-f86e-4d55-9656-38aa75482729" />
+
+som der ses på blokdiagrammet snakker manden tysk, computerens mikrofon opfanger det og sender det til google API tyske lydbibliotek. Lydbibilioteket registrere så hvilken lyd det er og skriver det tilbage til computeren. computeren tjekker så hvilken command der korropondere til lyden, dronen aflyder så ordren.
+
+### Trelags model 
+
+<img width="653" height="700" alt="image" src="https://github.com/user-attachments/assets/e41fe399-95d0-47fc-8aeb-e22d6fa81a2d" />
+
+### Client- Server akitektuktur
+
+<img width="975" height="364" alt="image" src="https://github.com/user-attachments/assets/16c4743b-b10c-439d-b80f-f01b7ff85b52" />
+
+  </details>
   </details>
 </details>
