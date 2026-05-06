@@ -400,7 +400,7 @@ function mousePressed() {
 }
    </details>
    </details>
-
+</details>
 <details>
   <summary><h2>kryptografi</h2></summary>
   Kryptering er en proces, der konverterer information til en kode for at forhindre uautoriseret adgang
@@ -445,7 +445,6 @@ HTTPS er en sikker version af HTTP og bruges til sikker kommunikation på intern
   <details>
     <summary><h3>Krypterings produkt</h3></summary>
     Jeg kan ikke frembringe det igen, ved ikke hvor det er
-  </details>
 </details>
 </details>
   <details>
